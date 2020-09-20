@@ -1,7 +1,7 @@
 # really need to figure out why it's called this
 # The purpose of this file is to allow users to add and alter information?
 
-from my_app import app
+from view_profiles import app
 from flask import render_template, request, redirect
 import requests
 

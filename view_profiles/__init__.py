@@ -6,5 +6,4 @@ app = Flask(__name__)
 #load main config
 app.config.from_pyfile('../config.py') 
 
-
 import view_profiles.views
