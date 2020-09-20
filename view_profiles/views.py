@@ -5,13 +5,17 @@ from my_app import app
 from flask import render_template, request, redirect
 import requests
 
-string_char = "Claire"
-facts = {"Birthday": "June 4th, 2000", "Favorite Color": "Blue", "Interests": "I like guitar, clarinet, fire-spinning, aerial silks, and trees :)"}
-posts = [{"title": "this is my title", "description": "this is my description"}]
+categories = ["School", "Class", "Grade", "Major", "Intensity"]
+School = ["UCLA","MIT", "UCD", "John Oliver Centennial Koala Chlamydia University"]
+Class = ["Chemistry", "Physics", "Multivariable Calculus", "Linear Algebra", "Circuits"]
+Grade = ["Freshman", "Sophomore", "Junior", "Senior"]
+Major=["Electrical Engineering", "Computer Engineering", "Computer Science", "Philosophy"]
+
+cards = [{"card_name": "dummy_name", "card_image": "https://i.pinimg.com/originals/ed/33/47/ed33475048bb9c5229245ca8847ee241.jpg", "card_description": "stuff from database"}]
 @app.route("/")
 def index():
     #create objects(?) that html can access
-    return render_template("index.html", string_char = string_char)
+    return render_template("view_profile.html", categories=categories, School=School, Class=Class, Grade=Grade, Major=Major, Intensity=Intensity, cards=cards)
 
 @app.route("/func_name")
 def function_name():
