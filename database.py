@@ -1,9 +1,11 @@
 import sqlite3
 
-userdb = sqlite3.connect("users.db")
-pointer = userdb.cursor()
-count = 0
 
+def open_db(name):
+    global userdb
+    userdb = sqlite3.connect(name)
+    global pointer
+    pointer = userdb.cursor()
 
 def add_qnnaire(name, questionct):
     pointer.execute("CREATE TABLE " + name + " (id INTEGER PRIMARY KEY AUTOINCREMENT);")
