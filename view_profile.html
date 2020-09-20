@@ -167,34 +167,38 @@
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
 
-     <!-- Dropdown -->       
-     <select id='selUser' style='width: 200px;'>
-        <option value='0'>-- Select Quality --</option>          
-        <option value='1'>Quality 1</option>  
+    <!-- Dropdown -->   
+    <!-- need to create categories, options dicts or lists-->    
+    {% for c in categories %}
+        <select id='selUser' style='width: 200px;'>
+            <option value=0> -- Select Option -- </option>           
+            {% for o in options %}
+                <option value={{loop.index}}> {{o}} </option>           
+            {% endfor %}
+        </select>  
+
+        <input type='button' value='Selected option' id='button_read'>
+
+        <br/>
+        <div id='result'></div>
+
+        <!-- Dropdown Script -->
+        <script>
+        $(document).ready(function(){
+            
+            // Initialize select2
+            $("#selUser").select2();
+
+            // Read selected option
+            $('#button_read').click(function(){
+                var option = $('#selOption option:selected').text();
+                var scoptionid = $('#selOption').val();
         
-    </select>   
-
-    <input type='button' value='Selected option' id='button_read'>
-
-    <br/>
-    <div id='result'></div>
-
-    <!-- Dropdown Script -->
-    <script>
-    $(document).ready(function(){
-        
-        // Initialize select2
-        $("#selUser").select2();
-
-        // Read selected option
-        $('#button_read').click(function(){
-            var school = $('#selUser option:selected').text();
-            var schoolid = $('#selUser').val();
-       
-            $('#result').html("schoolid : " + schoolid + ", school : " + school);
+                $('#result').html("optionid : " + optionid + ", option : " + option);
+            });
         });
-    });
-    </script>
+        </script>
+     {% endfor %} 
 
     <!-- Card Class - want to make data variable -->
     <div class="container">
