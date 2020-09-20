@@ -23,3 +23,7 @@ def function_name():
 
 #going to want a create a card function - unless mira is handling this
 #unsure if search options take place here or html
+
+if __name__ == "__main__":
+    app.run()
+
