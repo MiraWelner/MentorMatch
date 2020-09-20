@@ -38,6 +38,35 @@
             <!--Page info goes here??-->
 
                 <!-- Dropdown -->   
+                <select id='selUser' style='width: 200px;'>
+                    <option value=0> -- Select Option -- </option>           
+                    <option value=1> UCLA </option> 
+                    <option value=2> UCD </option> 
+                    <option value=3> MIT </option>  
+                    <option value=4> John Oliver Centennial Koala Chlamydia College </option>          
+                </select>  
+
+                <input type='button' value='Selected option' id='button_read'>
+
+                <br/>
+                <div id='result'></div>
+
+                <!-- Dropdown Script -->
+                <script>
+                $(document).ready(function(){
+                    
+                    // Initialize select2
+                    $("#selUser").select2();
+
+                    // Read selected option
+                    $('#button_read').click(function(){
+                        var option = $('#selOption option:selected').text();
+                        var scoptionid = $('#selOption').val();
+                
+                        $('#result').html("optionid : " + optionid + ", option : " + option);
+                    });
+                });
+                </script>
                 <!-- need to create categories, options dicts or lists-->    
                 {% for c in categories %}
                     <select id='selUser' style='width: 200px;'>
@@ -80,7 +109,7 @@
                                 <div class="card-body">
                                     <h4 class="card-title">card name 1</h4>
                                     <p class="card-text">card description 1</p>
-                                    <a href="#" class="btn btn-outline-primary">Primary</a>
+                                    <a href="#" class="btn btn-outline-primary">Connect</a>
                                 </div>
                             </div>
                     </div>
@@ -93,7 +122,7 @@
                                     <div class="card-body">
                                         <h4 class="card-title">card name 2</h4>
                                         <p class="card-text">card description 2</p>
-                                        <a href="#" class="btn btn-outline-primary">Primary</a>
+                                        <a href="#" class="btn btn-outline-primary">Connect</a>
                                     </div>
                                 </div>
                         </div>
